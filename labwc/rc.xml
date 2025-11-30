@@ -25,10 +25,11 @@
             <action name="ToggleSnapToEdge" direction="down" />
         </keybind>
         <!-- extension -->
+        <keybind key="W-Return">
+            <action name="Execute" command="wlctl.sh terminal" />
+        </keybind>
         <keybind key="W-d">
-            <action name="Execute">
-                <command>wmenu-run -b -f 'monospace bold 16'</command>
-            </action>
+            <action name="Execute" command="wlctl.sh dynamic-menu" />
         </keybind>
         <keybind key="W-comma">
             <action name="Execute" command="wlctl.sh vol-down" />
