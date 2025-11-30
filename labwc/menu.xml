@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu>
+
+    <menu id="root-menu" label="Desktop">
+        <item label="Wmenu">
+            <action name="Execute">
+                <command>wmenu-run -b -f 'monospace bold 16'</command>
+            </action>
+        </item>
+        <item label="Reconfigure">
+            <action name="Reconfigure" />
+        </item>
+        <menu id="screenshot" label="Sreenshot">
+            <item label="Area">
+                <action name="Execute" command="wlctl.sh screenshot-area" />
+            </item>
+            <item label="Fullscreen">
+                <action name="Execute" command="wlctl.sh screenshot-full" />
+            </item>
+        </menu>
+        <menu id="session" label="Session">
+            <item label="Lock">
+                <action name="Execute" command="wlctl.sh lock-screen" />
+            </item>
+            <item label="Suspend">
+                <action name="Execute" command="wlctl.sh lock-suspend" />
+            </item>
+            <item label="Exit">
+                <action name="Exit" />
+            </item>
+        </menu>
+        <menu id="power" label="Power">
+            <item label="Reboot">
+                <action name="Execute" command="systemctl -i reboot" />
+            </item>
+            <item label="Poweroff">
+                <action name="Execute" command="systemctl -i poweroff" />
+            </item>
+        </menu>
+    </menu>
+
+    <!-- Note: for localization support of menu items "client-menu" has to be removed here -->
+    <menu id="client-menu">
+        <item label="Always on Top">
+            <action name="ToggleAlwaysOnTop" />
+        </item>
+        <item label="Fullscreen">
+            <action name="ToggleFullscreen" />
+        </item>
+        <item label="Close">
+            <action name="Close" />
+        </item>
+        <menu id="root-menu" />
+    </menu>
+
+</openbox_menu>

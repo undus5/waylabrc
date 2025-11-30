@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<labwc_config>
+
+    <theme>
+        <font name="sans" size="12" weight="bold" />
+    </theme>
+
+    <keyboard>
+        <default />
+        <numlock>on</numlock>
+        <keybind key="W-Space">
+            <action name="ShowMenu" menu="root-menu" />
+        </keybind>
+        <keybind key="W-Left">
+            <action name="ToggleSnapToEdge" direction="left" />
+        </keybind>
+        <keybind key="W-Right">
+            <action name="ToggleSnapToEdge" direction="right" />
+        </keybind>
+        <keybind key="W-Up">
+            <action name="ToggleSnapToEdge" direction="up" />
+        </keybind>
+        <keybind key="W-Down">
+            <action name="ToggleSnapToEdge" direction="down" />
+        </keybind>
+        <!-- extension -->
+        <keybind key="W-d">
+            <action name="Execute">
+                <command>wmenu-run -b -f 'monospace bold 16'</command>
+            </action>
+        </keybind>
+        <keybind key="W-comma">
+            <action name="Execute" command="wlctl.sh vol-down" />
+        </keybind>
+        <keybind key="W-period">
+            <action name="Execute" command="wlctl.sh vol-up" />
+        </keybind>
+        <keybind key="W-slash">
+            <action name="Execute" command="wlctl.sh mute-toggle-speaker" />
+        </keybind>
+        <keybind key="W-S-slash">
+            <action name="Execute" command="wlctl.sh mute-toggle-mic" />
+        </keybind>
+    </keyboard>
+
+    <mouse>
+        <default />
+        <context name="Desktop">
+            <mousebind button="Left" action="Press">
+                <action name="None"></action>
+            </mousebind>
+        </context>
+    </mouse>
+
+</labwc_config>
