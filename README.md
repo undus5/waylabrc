@@ -27,7 +27,7 @@ lock screen
 
 ```
 $ git clone https://github.com/undus5/waylabrc.git ~/waylabrc
-$ ln -s ~/waylabrc/*.sh /usr/local/bin/
+$ ln -s ~/waylabrc/scripts/*.sh /usr/local/bin/
 $ ln -s ~/waylabrc/sway ~/.config/sway
 $ ln -s ~/waylabrc/labwc ~/.config/labwc
 ```
