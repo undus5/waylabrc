@@ -1,6 +1,6 @@
 # waylabrc
 
-Out-of-box configurations for
+Minimal out-of-box configurations for
 [Sway](https://swaywm.org) and
 [Labwc](https://labwc.github.io/index.html).
 
