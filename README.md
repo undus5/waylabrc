@@ -36,16 +36,19 @@ $ ln -s ~/waylabrc/labwc ~/.config/labwc
 
 `Super` equals `Win` key.
 
+Launching apps:
+
+`Super + d`      menu for launching app\
+`Super + Return` open terminal emulator, alacritty
+
 General control:
 
 `Super + Shift + Escape` exit sway\
 `Super + Ctrl + Escape`  kill focused window\
 `Super + Ctrl + r`       reload sway
 
-`Super + d`      menu for launching app\
 `Super + f`      toggle window fullscreen\
-`Super + g`      toggle status bar showing\
-`Super + Return` open terminal emulator, alacritty
+`Super + g`      toggle status bar showing
 
 Focus to direction:
 
@@ -85,8 +88,9 @@ Volume control:
 
 `Super + ,`         volume -5%\
 `Super + .`         volume +5%\
-`Super + /`         toggle mute speaker\
-`Super + Shift + /` toggle mute microphone
+`Super + /`         toggle speaker mute\
+`Super + Alt + /`   toggle microphone mute\
+`Super + Shift + /` toggle speakers (audio sinks)
 
 Screenshot:
 
@@ -99,13 +103,9 @@ Session control:
 
 ## Labwc Keybindings
 
-`Super + d (menu for launching app)\
-`Super + Return (open terminal emulator, alacritty)
+Launching apps: same as sway
 
-`Super + ,`         volume -5%\
-`Super + .`         volume +5%\
-`Super + /`         toggle mute speaker\
-`Super + Shift + /` toggle mute microphone
+Volume control: same as sway
 
 `Super + Up/Down/Left/Right` snap window to edge of screen, toggle
 
@@ -113,7 +113,7 @@ Session control:
 
 `Super + Space` open right click menus
 
-Session control, power control and screenshot are in right click menus.
+Suspend, poweroff, reboot and screenshot are in right click menus.
 
 ## CapsLock as Ctrl
 

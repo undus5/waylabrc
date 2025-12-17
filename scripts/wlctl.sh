@@ -2,8 +2,13 @@
 
 set -e
 
-eprintf() {
+errf() {
     printf "${@}" >&2 && exit 1
+}
+
+command-check() {
+    local _name=${1}
+    command -v ${_name} &>/dev/null || errf "command not found: ${_name}\n"
 }
 
 #################################################################################
@@ -11,12 +16,8 @@ eprintf() {
 # https://wiki.archlinux.org/title/WirePlumber
 #################################################################################
 
-wpctl-check() {
-    command -v wpctl &>/dev/null || eprintf "command not found: wpctl\n"
-}
-
 vol-get() {
-    wpctl-check
+    command-check wpctl
     local _id=${1}
     local _info=$(wpctl get-volume ${_id})
     local _integer=$(echo "${_info}" | awk -F'[. ]' '{ print $2 }')
@@ -33,31 +34,57 @@ vol-get() {
 }
 
 vol-num() {
-    wpctl-check
+    command-check wpctl
     [[ "${1}" == "[MUTED]" ]] && echo "103" || echo "${1:0:-1}"
 }
 
 vol-down() {
-    wpctl-check
+    command-check wpctl
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     wobctl.sh "$(vol-num $(vol-get @DEFAULT_AUDIO_SINK@))"
 }
 
 vol-up() {
-    wpctl-check
+    command-check wpctl
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
     wobctl.sh "$(vol-num $(vol-get @DEFAULT_AUDIO_SINK@))"
 }
 
 mute-toggle-speaker() {
-    wpctl-check
+    command-check wpctl
     wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
     wobctl.sh "$(vol-num $(vol-get @DEFAULT_AUDIO_SINK@))"
 }
 
 mute-toggle-mic() {
-    wpctl-check
+    command-check wpctl
     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+}
+
+sink-toggle() {
+    command-check wpctl
+    command-check jq
+    local _sinkids=( $(pw-dump | jq '.[]|select(.info.props."media.class"=="Audio/Sink")|.id' | xargs) )
+    local _currentid=$(wpctl inspect @DEFAULT_SINK@ | head -n 1 | cut -d, -f1 | cut -d' ' -f2)
+    local _size=${#_sinkids[@]}
+    local _index=-1
+    local _targetid
+    local _desc
+
+    for _i in "${!_sinkids[@]}"; do
+        if [[ "${_sinkids[$_i]}" == "${_currentid}" ]]; then
+            _index=${_i}
+            break
+        fi
+    done
+
+    _index=$(( ${_index} + 1 ))
+    (( _index >= _size )) && _index=0
+    _targetid=${_sinkids[$_index]}
+    _desc=$(pw-dump | jq -r --argjson id ${_targetid} '.[]|select(.id==$id)|.info.props."node.description"')
+
+    wpctl set-default ${_targetid}
+    notify-send -a $(basename $0) -t 2000 "Audio Sink" "${_desc}"
 }
 
 #################################################################################
@@ -70,7 +97,7 @@ scratchpad-count() {
 }
 
 muted-label() {
-    wpctl-check
+    command-check wpctl
     local _label
     local _vol
 
@@ -102,7 +129,7 @@ bar-status() {
 #################################################################################
 
 lock-screen() {
-    command -v swaylock &>/dev/null || eprintf "command not found: swaylock\n"
+    command -v swaylock &>/dev/null || errf "command not found: swaylock\n"
     pidof swaylock || swaylock \
         --daemonize \
         --ignore-empty-password \
@@ -127,11 +154,11 @@ lock-suspend() {
 #################################################################################
 
 grim-check() {
-    command -v grim &>/dev/null || eprintf "command not found: grim\n"
+    command -v grim &>/dev/null || errf "command not found: grim\n"
 }
 
 grimshot-check() {
-    command -v grimshot &>/dev/null || eprintf "command not found: grimshot\n"
+    command -v grimshot &>/dev/null || errf "command not found: grimshot\n"
 }
 
 _save_path=~/Pictures/Screenshot.$(date +%y%m%d.%H%M%S).$(date +%N|cut -c1).png
@@ -156,22 +183,22 @@ screenshot-window() {
 #################################################################################
 
 gsettings-check() {
-    command -v gsettings &>/dev/null || eprintf "command not found: gsettings\n"
+    command -v gsettings &>/dev/null || errf "command not found: gsettings\n"
 }
 
 gsettings-icon() {
     gsettings-check
     local _name="${1}"
-    [[ -n "${_name}" ]] || eprintf "icon theme undefined\n"
-    [[ -d "/usr/share/icons/${_name}" ]] || eprintf "icon theme not found: ${_name}\n"
+    [[ -n "${_name}" ]] || errf "icon theme undefined\n"
+    [[ -d "/usr/share/icons/${_name}" ]] || errf "icon theme not found: ${_name}\n"
     gsettings set org.gnome.desktop.interface icon-theme "${_name}"
 }
 
 gsettings-gtk() {
     gsettings-check
     local _name="${1}"
-    [[ -n "${_name}" ]] || eprintf "gtk theme undefined\n"
-    [[ -d "/usr/share/themes/${_name}" ]] || eprintf "gtk theme not found: ${_name}\n"
+    [[ -n "${_name}" ]] || errf "gtk theme undefined\n"
+    [[ -d "/usr/share/themes/${_name}" ]] || errf "gtk theme not found: ${_name}\n"
     gsettings set org.gnome.desktop.interface gtk-theme "${_name}"
 }
 
