@@ -163,7 +163,7 @@ grimshot-check() {
 
 _save_path=~/Pictures/Screenshot.$(date +%y%m%d.%H%M%S).$(date +%N|cut -c1).png
 
-screenshot-full() {
+screenshot-fullscreen() {
     grim-check
     grim ${_save_path}
 }

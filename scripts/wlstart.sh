@@ -1,14 +1,19 @@
 #!/usr/bin/bash
 
-command -v fcitx5 &>/dev/null && \
-    ! pidof fcitx5 &>/dev/null && fcitx5 -d -r
+command -v kanshi &>/dev/null \
+    && ! pidof kanshi &>/dev/null \
+    && nohup kanshi &>/dev/null &
+
+command -v fcitx5 &>/dev/null \
+    && ! pidof fcitx5 &>/dev/null \
+    && nohup fcitx5 -d -r &>/dev/null &
 
 polkit_name=polkit-gnome-authentication-agent-1
 polkit_exec=/usr/lib/polkit-gnome/${polkit_name}
-command -v ${polkit_exec} &>/dev/null && \
-    ! pidof ${polkit_name} &>/dev/null && \
-        ${polkit_exec} 2>&1 &
+command -v ${polkit_exec} &>/dev/null \
+    && ! pidof ${polkit_name} &>/dev/null \
+    && nohup ${polkit_exec} &>/dev/null &
 
-command -v kanshi &>/dev/null && \
-    ! pidof kanshi &>/dev/null && \
-        kanshi 2>&1 &
+command -v wlstart-custom.sh &>/dev/null \
+    && nohup wlstart-custom.sh &>/dev/null &
+

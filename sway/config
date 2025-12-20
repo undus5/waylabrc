@@ -2,14 +2,14 @@
 
 include base.conf
 include extension.conf
-# include lightcolors.conf
+include lightcolors.conf
 
 # exec swayidle timeout 7200 'swayctl.sh lock-screen'
+
+# swaymsg -t get_tree -r
+for_window [app_id="org.fcitx.fcitx5-config-qt"] floating enable
 
 # output * background background.jpg fill
 # output * background #355486 solid_color
 # output * background #4c4c4c solid_color
 
-# swaymsg -t get_tree -r
-# for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-# for_window [app_id="org.fcitx.fcitx5-config-qt"] floating enable

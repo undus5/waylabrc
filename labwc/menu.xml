@@ -13,30 +13,32 @@
             <action name="Reconfigure" />
         </item>
         <menu id="screenshot" label="Sreenshot">
-            <item label="Area">
+            <item label="Select Area">
                 <action name="Execute" command="wlctl.sh screenshot-area" />
             </item>
             <item label="Fullscreen">
-                <action name="Execute" command="wlctl.sh screenshot-full" />
+                <action name="Execute" command="wlctl.sh screenshot-fullscreen" />
             </item>
         </menu>
         <menu id="session" label="Session">
-            <item label="Lock">
+            <item label="Lock Screen">
                 <action name="Execute" command="wlctl.sh lock-screen" />
             </item>
+            <!--
             <item label="Suspend">
                 <action name="Execute" command="wlctl.sh lock-suspend" />
             </item>
-            <item label="Exit">
+            -->
+            <item label="Exit Labwc">
                 <action name="Exit" />
             </item>
         </menu>
         <menu id="power" label="Power">
-            <item label="Reboot">
-                <action name="Execute" command="systemctl -i reboot" />
-            </item>
             <item label="Poweroff">
                 <action name="Execute" command="systemctl -i poweroff" />
+            </item>
+            <item label="Reboot">
+                <action name="Execute" command="systemctl -i reboot" />
             </item>
         </menu>
     </menu>
