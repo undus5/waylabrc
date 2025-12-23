@@ -83,8 +83,8 @@ Focus onto display:
 
 Move window to display:
 
-`Super + Shift + [` move to left display\
-`Super + Shift + ]` move to right display
+`Super + Shift + [` move workspace to left display\
+`Super + Shift + ]` move workspace to right display
 
 Layout toggle:
 
