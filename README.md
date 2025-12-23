@@ -50,31 +50,41 @@ General control:
 `Super + f`      toggle window fullscreen\
 `Super + g`      toggle status bar showing
 
-Focus to direction:
+Focus onto direction:
 
 `Super + h` focus left\
 `Super + j` focus down\
 `Super + k` focus up\
 `Super + l` focus right
 
-Move to direction:
+Move window to direction:
 
 `Super + Shift + h` move to left\
 `Super + Shift + j` move to down\
 `Super + Shift + k` move to up\
 `Super + Shift + l` move to right
 
-Switch to workspaces:
+Focus on specific workspace:
 
 `Super + 1/2/3/4/5/6/7/8/9/0`\
-`Super + q/w/e/r/t/y/u/i/o/p/[/]`
+`Super + q/w/e/r/t/y/u/i/o/p`
 `Super + z/x/c/v/b/n/m`
 
-Move to workspaces:
+Move window to specific workspace:
 
 `Super + Shift + 1/2/3/4/5/6/7/8/9/0`\
-`Super + Shift + q/w/e/r/t/y/u/i/o/p/[/]`
+`Super + Shift + q/w/e/r/t/y/u/i/o/p`
 `Super + Shift + z/x/c/v/b/n/m`
+
+Focus onto display:
+
+`Super + [` focus on left display\
+`Super + ]` focus on right display
+
+Move window to display:
+
+`Super + Shift + [` move to left display\
+`Super + Shift + ]` move to right display
 
 Layout toggle:
 
