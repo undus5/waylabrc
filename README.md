@@ -43,12 +43,12 @@ Launching apps:
 
 General control:
 
-`Super + Shift + Escape` exit sway\
-`Super + Ctrl + Escape`  kill focused window\
-`Super + Ctrl + r`       reload sway
+`Super + Ctrl + Escape`  exit sway\
+`Super + Ctrl + Return`  reload sway\
+`Super + Shift + Escape` kill focused window
 
-`Super + f`      toggle window fullscreen\
-`Super + g`      toggle status bar showing
+`Super + f` toggle window fullscreen\
+`Super + g` toggle status bar showing
 
 Focus onto direction:
 
