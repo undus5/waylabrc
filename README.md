@@ -57,7 +57,7 @@ Focus onto direction:
 `Super + k` focus up\
 `Super + l` focus right
 
-Move window to direction:
+Move container to direction:
 
 `Super + Shift + h` move to left\
 `Super + Shift + j` move to down\
@@ -70,7 +70,7 @@ Focus on specific workspace:
 `Super + q/w/e/r/t/y/u/i/o/p`
 `Super + z/x/c/v/b/n/m`
 
-Move window to specific workspace:
+Move container to specific workspace:
 
 `Super + Shift + 1/2/3/4/5/6/7/8/9/0`\
 `Super + Shift + q/w/e/r/t/y/u/i/o/p`
@@ -81,7 +81,7 @@ Focus onto display:
 `Super + [` focus on left display\
 `Super + ]` focus on right display
 
-Move window to display:
+Move workspace to display:
 
 `Super + Shift + [` move workspace to left display\
 `Super + Shift + ]` move workspace to right display
