@@ -8,6 +8,7 @@ include lightcolors.conf
 
 # swaymsg -t get_tree -r
 for_window [app_id="org.fcitx.fcitx5-config-qt"] floating enable
+for_window [class="PortProton"] floating enable
 
 # output * background background.jpg fill
 # output * background #355486 solid_color
