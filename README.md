@@ -43,8 +43,8 @@ Launching apps:
 
 General control:
 
-`Super + Ctrl + Escape`  exit sway\
-`Super + Ctrl + Return`  reload sway\
+`Super + Alt + Escape`   exit sway\
+`Super + Alt + Return`   reload sway\
 `Super + Shift + Escape` kill focused window
 
 `Super + f` toggle window fullscreen\
@@ -91,7 +91,7 @@ Layout toggle:
 `Super + =` switch to stacking layout\
 `Super + \` toggle split layout between horizontal and vertical
 
-`Super + ;` splitv, split next window to vertical layout\
+`Super + ;`               splitv, split next window to vertical layout\
 `Super + '(single quote)` splith, split next window to horizontal layout
 
 Volume control:
@@ -104,12 +104,13 @@ Volume control:
 
 Screenshot:
 
-`Super + grave(backtick)` take screenshot for selected area\
-`Print` take screenshot fullscreen
+`Print`                           take screenshot fullscreen\
+`Super + grave(backtick)`         take screenshot for selected area\
+`Super + Shift + grave(backtick)` take screenshot for window
 
 Session control:
 
-`Super + Shift + grave(backtick)` lock screen
+`Super + Alt + BackSpace` lock screen
 
 ## Labwc Keybindings
 
