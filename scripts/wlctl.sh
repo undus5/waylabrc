@@ -212,7 +212,7 @@ terminal() {
 }
 
 dynamic-menu() {
-    wmenu-run -b -f 'monospace bold 18'
+    wmenu-run -b -f 'monospace bold 18' "${@}"
 }
 
 #################################################################################

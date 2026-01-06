@@ -2,7 +2,7 @@
 
 include base.conf
 include extension.conf
-include lightcolors.conf
+include colors.conf
 
 # exec swayidle timeout 7200 'swayctl.sh lock-screen'
 
